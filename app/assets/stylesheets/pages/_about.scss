@@ -1,0 +1,32 @@
+@import "home";
+
+.bandeau{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 70px;
+  padding-top: 130px;
+  padding-bottom: 130px;
+  width: 100%;
+  background: transparent
+}
+.presentation{
+  display: flex;
+  flex-direction: row;
+  img {
+    width: 30%;
+    margin-left: 80px;
+  }
+}
+
+.pitch {
+  width:70%;
+  margin-right: 150px;
+  background-color: #dcdcdc;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  p{
+    text-align: justify;
+  }
+}

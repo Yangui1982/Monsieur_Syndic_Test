@@ -1,0 +1,21 @@
+<div class="contenu">
+  <h3>Ajoutez votre "news" dans le champs ci-dessous</h3>
+  <br>
+  <br>
+  <br>
+  <%= simple_form_for(@comment) do |f| %>
+    <div class="field">
+      <%= f.input :content, label: "Contenu", type: "text" %>
+    </div>
+    <br>
+    <br>
+    <div class="form-actions">
+      <%= f.submit 'Sauvegarder la News', class:'bnt btn-primary' %>
+    </div>
+  <% end %>
+
+
+  <br>
+  <br>
+  <br>
+</div>

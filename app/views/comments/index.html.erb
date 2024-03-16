@@ -1,1 +1,75 @@
-
+<%# <div class="banner">
+  <%= image_tag("Monsieur Syndic.jpg", alt: "banner")%>
+<%#</div> %>
+<div class="main_content">
+  <div class="presentation pres">
+    <%= image_tag("MSyndicLogo.png", alt: "logo") %>
+    <div class="infos">
+      <div class="pub">
+        <div class="title">
+          <h1 class='word1'>Monsieur</h1><h1 class='word2'>SYNDIC</h1>
+        </div>
+        <h2 style='margin: 5px'> Un cabinet éthique et novateur</h2>
+        <br>
+        <div class="contenu">
+          <p>Notre cabinet indépendant s’attache à développer un travail de qualité tout en valorisant la proximité et la disponibilité indispensables à notre métier de services. Une équipe autonome et passionée est l’un des moteurs de notre entreprise à taille humaine.</p>
+        </div>
+        <%if @comments.any?%>
+        <div class="actu">
+          <h2>Actualités</h2>
+          <br>
+          <ul>
+            <% @comments.each do |comment| %>
+            <li><%= comment.content %>
+                <% if policy(comment).destroy? %>
+                  <%= button_to comment_path(comment), class: 'trash',
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } do%>
+                    <i class="fa-regular fa-trash-can"></i>
+                    <% end %>
+                <% end %>
+            </li>
+            <br>
+            <% end %>
+          </ul>
+          <br>
+        </div>
+        <%end%>
+        <% if user_session %>
+        <div class="add">
+          <%= link_to new_comment_path, class: 'add' do%>
+            <i class="fa-solid fa-plus"></i>
+          <% end %>
+        </div>
+        <%end%>
+      </div>
+    </div>
+  </div>
+  <div class="where">
+    <div class="title">
+        <h1 class='word1'>Monsieur</h1><h1 class='word2'>SYNDIC</h1>
+    </div>
+    <h2 style='margin: 5px'> Un cabinet éthique et novateur</h2>
+    <div class="horaires">
+      <h4 style='margin: 5px'>
+        <i class="fa-regular fa-clock" style='margin-right: 10px'></i>
+        "Horaires: Lundi - Vendredi, 9:00-12:00, 14:00 - 17:00"
+      </h4>
+    </div>
+    <div class="map">
+      <h4 style='font-weight: bolder'>137, Boulevard Baille 13005 Marseille </h4>
+      <h4 style='font-weight: bolder'>07.87.32.80.06</h4>
+      <div class="metro">
+        <div class="m1"><h4 class='name'>M1</h4></div>
+        <p class='ligne'>Sortie Métro Baille</p>
+      </div>
+      <br>
+      <div class="metro">
+        <div class="m1"><h4 class='name'>54</h4></div>
+        <p class='ligne'>Arrêt Baille-Vertus</p>
+      </div>
+      <br>
+      <iframe style='border-radius: 10px' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2904.2352418355304!2d5.389844712205747!3d43.28839507100127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12c9c0a86bf0e9fd%3A0x37666e6272b7e69!2s137%20Bd%20Baille%2C%2013005%20Marseille!5e0!3m2!1sfr!2sfr!4v1710519090008!5m2!1sfr!2sfr" width="600" height="375" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</div>
