@@ -24,6 +24,9 @@ class CommentsController < ApplicationController
     authorize @comment
   end
 
+  def edit
+  end
+
   def update
     @comment.update(comment_params)
     redirect_to root_path
@@ -32,7 +35,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to root_path, status: :see_other
+    redirect_to root_path
     authorize @comment
   end
 
